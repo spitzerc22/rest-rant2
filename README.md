@@ -2,10 +2,6 @@
 
 REST-Rant is an app where users can review restaurants.
 
-# Project REST-Rant
-
-TBD - SUMMARY
-
 ## Tech Usage
 
 **CSS Framework:** Bootstrap
