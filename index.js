@@ -5,10 +5,12 @@ require('dotenv').config()
 
 
 app.use('/places', require('./controllers/places'))
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
 
 //ROUTES
 app.get('/', (req, res) => {
-    res.send('I am up and running!')
+    res.render('Home')
 })
 
 //404 ERROR
