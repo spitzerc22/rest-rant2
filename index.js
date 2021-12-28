@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 //404 ERROR
 app.get('*', (req, res) => {
-    res.status(404).send('Opps, there was something wrong!')
+    res.render('Error')
 })
 
 
