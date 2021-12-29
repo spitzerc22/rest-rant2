@@ -6,6 +6,12 @@ function Home () {
         <Default>
             <main>
                 <h1>HOME</h1>
+                <div>
+                    <img src="/images/chia-cup.jpg" alt="chia fruit cup" />
+                    <div>
+                        Photo by <a href="https://unsplash.com/photos/MsTOg6rhRVk">Brenda Godinez</a>
+                    </div>
+                </div>
                 <a href="/places">
                     <button className="btn-primary">Places Page</button>
                 </a>
