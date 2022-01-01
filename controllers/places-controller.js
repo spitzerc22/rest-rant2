@@ -40,4 +40,15 @@ router.post('/', urlencodedParser, (req, res) => {
   res.redirect('places')
 })
 
+router.delete('/places/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('Error')
+  } else if (!places[id]) {
+    res.render('Error')
+  } else {
+    places.splice(i, 1)
+    res.send('/places')
+  }
+})
 module.exports = router
