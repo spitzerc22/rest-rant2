@@ -1,37 +1,36 @@
 const express = require('express')
-const places = express.Router()
-var bodyParser = require('body-parser')
+const router = express.Router()
+const places = require('../models/places')
+const bodyParser = require('body-parser')
 
+const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 //ROUTES   
-places.get('/', (req, res) => {
-    let places = [{
-        name: 'H-Thai-ML',
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai, Pan-Asian',
-        pic: '/images/food.jpg'
-      }, {
-        name: 'Coding Cat Cafe',
-        city: 'Phoenix',
-        state: 'AZ',
-        cuisines: 'Coffee, Bakery',
-        pic: '/images/catLatte.jpg'
-      }]
+router.get('/', (req, res) => {
     res.render('Index', {places})
 })
 
-places.get('/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('New')
 })
 
-places.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   res.send()
 })
 
-places.post('/', (req, res) => {
-  console.log(req.body)
-  res.render('Index')
+router.post('/', urlencodedParser, (req, res) => {
+  const obj = JSON.parse(JSON.stringify(req.body))
+  console.log(obj)
+  if (!req.body.pic) {
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  res.send('POST /places')
 })
 
-module.exports = places
+module.exports = router
