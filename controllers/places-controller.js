@@ -15,7 +15,13 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send()
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('Error')
+  } else if (!places[id]) {
+    res.render('Error')
+  }
+  res.render('Show', {place: places[id]})
 })
 
 router.post('/', urlencodedParser, (req, res) => {
