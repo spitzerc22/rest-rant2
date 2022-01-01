@@ -8,7 +8,7 @@ function New () {
             <form method="POST" action="/places">
                 <div className="form-group">
                     <label htmlFor="name">Places Name</label>
-                    <input className="form-control" type="text" id="name" name="name" requried/>
+                    <input className="form-control" type="text" id="name" name="name" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="pic">Picture</label>

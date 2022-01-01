@@ -1,5 +1,7 @@
 const express = require('express')
 const places = express.Router()
+var bodyParser = require('body-parser')
+
 
 //ROUTES   
 places.get('/', (req, res) => {
@@ -16,7 +18,7 @@ places.get('/', (req, res) => {
         cuisines: 'Coffee, Bakery',
         pic: '/images/catLatte.jpg'
       }]
-    res.render('places/Index', {places})
+    res.render('Index', {places})
 })
 
 places.get('/new', (req, res) => {
@@ -26,8 +28,10 @@ places.get('/new', (req, res) => {
 places.get('/:id', (req, res) => {
   res.send()
 })
-places.post('/', (req, res) => {
 
+places.post('/', (req, res) => {
+  console.log(req.body)
+  res.render('Index')
 })
 
 module.exports = places
