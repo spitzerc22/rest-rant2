@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
   } else if (!places[id]) {
     res.render('Error')
   }
-  res.render('Show', {place: places[id]})
+  res.render('Show', {place: places[id], id})
 })
 
 router.post('/', urlencodedParser, (req, res) => {

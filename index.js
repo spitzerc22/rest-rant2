@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-
+const methodOverride = require('method-override')
 
 //MIDDLEWARE    
 app.use('/places', require('./controllers/places-controller'))
@@ -14,6 +14,7 @@ app.use(express.static("public"))
 //returns request as strings/arrays
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 
 //ROUTES
