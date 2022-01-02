@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const Place = require('../models/places')
 
-
-const bodyParser = require('body-parser')
-const urlencodedParser = bodyParser.urlencoded({extended: false})
+//FOR POST ROUTE
+// const bodyParser = require('body-parser')
+// const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 //ROUTES   
 router.get('/', (req, res) => {
@@ -36,10 +36,18 @@ router.get('/:id', (req, res) => {
   //   place: places[req.params.id], 
   //   id: req.params.id
   // })
+  Place.findById(req.params.id)
+    .then(place => {
+      res.render('Show', {place})
+    })
+    .catch(err => {
+      console.log(err)
+      res.render('Error')
+    })
 })
 
 //CREATE
-router.post('/', urlencodedParser, (req, res) => {
+router.post('/', (req, res) => {
   // const obj = JSON.parse(JSON.stringify(req.body))
   // console.log(obj)
   // if (!req.body.pic) {
