@@ -21,7 +21,10 @@ router.get('/:id', (req, res) => {
   } else if (!places[id]) {
     res.render('Error')
   }
-  res.render('Show', {place: places[id], id})
+  res.render('Show', {
+    place: places[req.params.id], 
+    id: req.params.id
+  })
 })
 
 router.post('/', urlencodedParser, (req, res) => {
@@ -40,14 +43,14 @@ router.post('/', urlencodedParser, (req, res) => {
   res.redirect('places')
 })
 
-router.delete('/places/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
     res.render('Error')
   } else if (!places[id]) {
     res.render('Error')
   } else {
-    places.splice(i, 1)
+    places.splice(id, 1)
     res.send('/places')
   }
 })
