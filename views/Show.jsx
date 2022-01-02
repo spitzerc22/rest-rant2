@@ -14,8 +14,8 @@ function Show (data) {
                 </div>
                 <div>
                     <h2>Description</h2>
-                    <h3>{data.Place.showEstablished()}</h3>
-                    <h3>Serving {data.Place.cuisines}</h3>
+                    <h3>{data.place.showEstablished()}</h3>
+                    <h3>Serving {data.place.cuisines}</h3>
                 
                 </div>
                 <div>

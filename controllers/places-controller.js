@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Place = require('../models/places')
+const db = require('../models/mongoose')
 
 //FOR POST ROUTE
 const bodyParser = require('body-parser')
@@ -9,7 +9,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false})
 //ROUTES   
 router.get('/', (req, res) => {
     // res.render('Index', {places})
-    Place.find()
+    db.Place.find()
       .then(places => {
         res.render('Index', {places})
         })
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 //NEW
 router.get('/new', (req, res) => {
-  // res.render('New')
+  res.render('New')
 })
 
 //SHOW
@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
   //   place: places[req.params.id], 
   //   id: req.params.id
   // })
-  Place.findById(req.params.id)
+  db.Place.findById(req.params.id)
     .then(place => {
       res.render('Show', {place})
     })
@@ -47,21 +47,19 @@ router.get('/:id', (req, res) => {
 })
 
 //CREATE
-router.post('/', urlencodedParser, (req, res) => {
-  const obj = JSON.parse(JSON.stringify(req.body))
-  console.log(obj)
-  if (!req.body.pic) {
-    req.body.pic = 'http://placekitten.com/400/400'
-  }
-  if (!req.body.city) {
-    req.body.city = 'Anytown'
-  }
-  if (!req.body.state) {
-    req.body.state = 'USA'
-  }
+router.post('/', (req, res) => {
+  // const obj = JSON.parse(JSON.stringify(req.body))
+  // console.log(obj)
+
+  // if (!req.body.city) {
+  //   req.body.city = 'Anytown'
+  // }
+  // if (!req.body.state) {
+  //   req.body.state = 'USA'
+  // }
   // places.push(req.body)
   // res.redirect('/places')
-  Place.create(req.body)
+  db.Place.create(req.body)
     .then(() => {
       res.redirect('/places')
     })
@@ -73,16 +71,10 @@ router.post('/', urlencodedParser, (req, res) => {
 
 //EDIT
 router.get('/:id/edit', (req, res) => {
-  // let id = Number(req.params.id)
-  // if (isNaN(id)) {
-  //   res.render('Error')
-  // } else if (!places[id]) {
-  //   res.render('Error')
-  // }
-  // res.render('Edit', {
-  //   place: places[req.params.id],
-  //   id: req.params.id
-  // })
+ db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('Edit', {place})
+  })
 })
 
 //UPDATE

@@ -8,27 +8,60 @@ function New () {
             <form method="POST" action="/places">
                 <div className="form-group">
                     <label htmlFor="name">Places Name</label>
-                    <input className="form-control" type="text" id="name" name="name" required/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="pic">Picture</label>
-                    <input className="form-control" type="url" id="picture" name="picture"/>
+                    <input 
+                        className="form-control"
+                        type="url" 
+                        id="picture" 
+                        name="picture"
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="city">City</label>
-                    <input className="form-control" type="text" id="city" name="city"/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id="city" 
+                        name="city"
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="state">State</label>
-                    <input className="form-control" type="text" id="state" name="state"/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id="state" 
+                        name="state"
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="cuisine">Cuisine</label>
-                    <input className="form-control" type="text" id="cuisine" name="cuisine" required/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id="cuisine" 
+                        name="cuisine" 
+                        required
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="founded">Founded In</label>
-                    <input className="form-control" id="founded" name="founded" />
+                    <input 
+                        type="number"
+                        className="form-control" 
+                        id="founded" 
+                        name="founded" 
+                        defaultValue={new Date().getFullYear()}
+                    />
                 </div>
                 <br/>
                 <input className="btn btn-primary" type="submit" value="Add Place"/>

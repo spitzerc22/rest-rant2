@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 const methodOverride = require('method-override')
-const mongoose = require('mongoose')
+
 
 //MIDDLEWARE    
 app.set('views', __dirname + '/views')
@@ -18,7 +18,7 @@ app.use(methodOverride('_method'))
 app.use('/places', require('./controllers/places-controller'))
 
 // CONNECTING DB    
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, () => {console.log('Connected to DB')})
+
 
 //ROUTES
 app.get('/', (req, res) => {
