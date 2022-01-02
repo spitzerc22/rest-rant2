@@ -47,12 +47,12 @@ function Edit (data) {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="cuisine">Cuisine</label>
+                            <label htmlFor="cuisine">Cuisines</label>
                             <input 
                                 className="form-control" 
                                 type="text" 
-                                id="cuisine" 
-                                name="cuisine" 
+                                id="cuisines" 
+                                name="cuisines" 
                                 required
                             />
                         </div>
