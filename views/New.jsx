@@ -26,6 +26,10 @@ function New () {
                     <label htmlFor="cuisine">Cuisine</label>
                     <input className="form-control" type="text" id="cuisine" name="cuisine" required/>
                 </div>
+                <div className="form-group">
+                    <label htmlFor="founded">Founded In</label>
+                    <input className="form-control" id="founded" name="founded" />
+                </div>
                 <br/>
                 <input className="btn btn-primary" type="submit" value="Add Place"/>
             </form>
