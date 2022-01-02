@@ -1,6 +1,6 @@
-const Place = require('../models/places')
 
-Place.create([{
+
+module.exports = [{
     name: 'H-thai-ML',
     city: 'Seattle',
     state: 'WA',
@@ -14,13 +14,5 @@ Place.create([{
     cuisines: 'coffee, Bakery',
     pic: '/images/coffee-cat.jpg',
     founded:2020
-}])
+}]
 
-.then(() => {
-    console.log('Success!')
-    process.exit()
-})
-.catch(err => {
-    console.log('Failure!', err)
-    process.exit()
-})
