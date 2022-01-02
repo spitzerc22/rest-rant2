@@ -6,7 +6,7 @@ function Error () {
         <Default>
             <main>
                 <h1>404: PAGE NOT FOUND</h1>
-                <p>Oops, sorry, we can't find this page!</p>
+                <p>Oops, sorry, we can't REACH this page!</p>
                 <img src="/images/catError.jpg" alt="Cat reaching for help" />
             </main>
         </Default>
