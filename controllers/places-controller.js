@@ -3,8 +3,8 @@ const router = express.Router()
 const Place = require('../models/places')
 
 //FOR POST ROUTE
-// const bodyParser = require('body-parser')
-// const urlencodedParser = bodyParser.urlencoded({extended: false})
+const bodyParser = require('body-parser')
+const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 //ROUTES   
 router.get('/', (req, res) => {
@@ -47,18 +47,18 @@ router.get('/:id', (req, res) => {
 })
 
 //CREATE
-router.post('/', (req, res) => {
-  // const obj = JSON.parse(JSON.stringify(req.body))
-  // console.log(obj)
-  // if (!req.body.pic) {
-  //   req.body.pic = 'http://placekitten.com/400/400'
-  // }
-  // if (!req.body.city) {
-  //   req.body.city = 'Anytown'
-  // }
-  // if (!req.body.state) {
-  //   req.body.state = 'USA'
-  // }
+router.post('/', urlencodedParser, (req, res) => {
+  const obj = JSON.parse(JSON.stringify(req.body))
+  console.log(obj)
+  if (!req.body.pic) {
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
   // places.push(req.body)
   // res.redirect('/places')
   Place.create(req.body)
