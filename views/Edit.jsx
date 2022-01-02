@@ -1,12 +1,12 @@
 const React = require('react')
 const Default = require('./layout/Default')
 
-function Edit (data) {
+function Edit ({place}) {
     return (
         <Default>
             <main>
                 <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${data.id}?_method=PUT`}>
+                <form method="POST" action={`/places/${place.id}?_method=PUT`}>
                     <div className="row">
                         <div className="form-group col-sm-6">
                             <label htmlFor="name">Places Name</label>
@@ -15,7 +15,7 @@ function Edit (data) {
                                 type="text" 
                                 id="name" 
                                 name="name" 
-                                defaultValue={data.place.name}
+                                defaultValue={place.name}
                                 required
                             />
                         </div>

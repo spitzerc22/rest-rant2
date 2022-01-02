@@ -32,6 +32,7 @@ function New () {
                         type="text" 
                         id="city" 
                         name="city"
+                        defaultValue="Anytown"
                     />
                 </div>
                 <div className="form-group">
@@ -41,6 +42,7 @@ function New () {
                         type="text" 
                         id="state" 
                         name="state"
+                        defaultValue="USA"
                     />
                 </div>
                 <div className="form-group">

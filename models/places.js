@@ -13,7 +13,8 @@ const placeSchema = new Schema ({
        type: Number,
        min: [1673],
        max: [new Date().getFullYear()]
-   }
+   },
+   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'comment'}]
 })
 
 //Helper Method

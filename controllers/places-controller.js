@@ -71,10 +71,13 @@ router.post('/', (req, res) => {
 
 //EDIT
 router.get('/:id/edit', (req, res) => {
- db.Place.findById(req.params.id)
-  .then(place => {
-    res.render('Edit', {place})
-  })
+//  db.Place.findById(req.params.id)
+//   .then(foundPlace => {
+//     res.render('Edit', {
+//       place: foundPlace
+//     })
+//   })
+    res.send('GET edit form stub')
 })
 
 //UPDATE
@@ -101,6 +104,7 @@ router.put('/:id', (req, res) => {
   //     places[id] = req.body
   //     res.redirect(`/places/${id}`)
   // }
+  res.send('PUT /places/:id stub')
 })
 
 //DELETE
@@ -114,5 +118,6 @@ router.delete('/:id', (req, res) => {
   //   places.splice(id, 1)
   //   res.redirect('/places')
   // }
+  res.send('DELETE /places/:id stub')
 })
 module.exports = router
