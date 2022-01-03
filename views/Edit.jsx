@@ -6,7 +6,7 @@ function Edit ({place}) {
         <Default>
             <main>
                 <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${place.id}?_method=PUT`}>
+                <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
                     <div className="row">
                         <div className="form-group col-sm-6">
                             <label htmlFor="name">Places Name</label>
@@ -54,6 +54,16 @@ function Edit ({place}) {
                                 id="cuisines" 
                                 name="cuisines" 
                                 required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="founded">Founded</label>
+                            <input 
+                                className="form-control"
+                                type="number"
+                                id="founded"
+                                name="founded"
+                                value={data.place.founded}
                             />
                         </div>
                     </div>

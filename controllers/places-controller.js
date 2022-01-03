@@ -104,8 +104,16 @@ router.get('/:id/edit', (req, res) => {
 //       place: foundPlace
 //     })
 //   })
-    res.send('GET edit form stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+      res.render('places/edit', { place })
+  })
+  .catch(err => {
+      console.log(err)
+      res.render('Error')
+  })
 })
+
 
 //UPDATE
 router.put('/:id', (req, res) => {
@@ -131,7 +139,14 @@ router.put('/:id', (req, res) => {
   //     places[id] = req.body
   //     res.redirect(`/places/${id}`)
   // }
-  res.send('PUT /places/:id stub')
+    db.Place.findByIdAndUpdate(req.params.id, req.body)
+      .then(() => {
+          res.redirect(`/places/${req.params.id}`)
+      })
+      .catch(err => {
+          console.log(err)
+          res.render('Error')
+      })
 })
 
 //DELETE
@@ -145,6 +160,14 @@ router.delete('/:id', (req, res) => {
   //   places.splice(id, 1)
   //   res.redirect('/places')
   // }
-  res.send('DELETE /places/:id stub')
+    db.Place.findByIdAndDelete(req.params.id)
+    .then(place => {
+        res.redirect('/places')
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('Error')
+    })
 })
+
 module.exports = router
