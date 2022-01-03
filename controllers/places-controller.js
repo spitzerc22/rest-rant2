@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 //ROUTES   
+//INDEX
 router.get('/', (req, res) => {
     // res.render('Index', {places})
     db.Place.find()
