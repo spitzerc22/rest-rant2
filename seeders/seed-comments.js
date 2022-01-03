@@ -15,7 +15,8 @@ async function seed() {
 
     // add comment to place schema (comments array)
     place.comments.push(comment.id)
-    
+    //solution from Jamie? haven't seen it in action
+    await place.save()
     // Exit the program
     process.exit()
 }

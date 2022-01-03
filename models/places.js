@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 
 
-
+//comments is a Child Reference
 const placeSchema = new Schema ({
    name: {type: String, required: true},
    pic: {type: String, default: 'http://placekitten.com/350/350'},
@@ -14,7 +14,7 @@ const placeSchema = new Schema ({
        min: [1673],
        max: [new Date().getFullYear()]
    },
-   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'comment'}]
+   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 })
 
 //Helper Method

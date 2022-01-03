@@ -37,7 +37,9 @@ router.get('/:id', (req, res) => {
   //   id: req.params.id
   // })
   db.Place.findById(req.params.id)
+  .populate('comments')
     .then(place => {
+      console.log(place.comments)
       res.render('Show', {place})
     })
     .catch(err => {
@@ -46,7 +48,31 @@ router.get('/:id', (req, res) => {
     })
 })
 
-//CREATE
+//CREATE COMMENT
+router.post('/:id/comment', (req, res) => {
+  console.log(req.body)
+  db.Place.findById(req.params.id)
+  .then(place => {
+      db.Comment.create(req.body)
+      .then(comment => {
+          place.comments.push(comment.id)
+          place.save()
+          .then(() => {
+              res.redirect(`/places/${req.params.id}`)
+          })
+      })
+      .catch(err => {
+          console.log(err)
+          res.render('Error')
+      })
+  })
+  .catch(err => {
+      console.log(err)
+      res.render('Error')
+  })
+})
+
+//CREATE BREAD
 router.post('/', (req, res) => {
   // const obj = JSON.parse(JSON.stringify(req.body))
   // console.log(obj)
